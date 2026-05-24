@@ -1,0 +1,48 @@
+<template>
+
+    <lightning-card title="Postal Branches">
+
+        <div class="slds-m-around_medium">
+
+            <lightning-input
+                type="text"
+                label="Enter Postal Pincode"
+                value={postalPincode}
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <lightning-button
+                label="Search Branches"
+                onclick={handleSearch}
+                class="slds-m-top_small">
+            </lightning-button>
+
+        </div>
+
+        <template if:true={branches.length}>
+
+            <lightning-card title="Postal Branch Details">
+
+                <lightning-datatable
+                    key-field="Pincode"
+                    data={branches}
+                    columns={columns}>
+                </lightning-datatable>
+
+            </lightning-card>
+
+        </template>
+
+        <template if:true={error}>
+
+            <div class="slds-text-color_error slds-m-around_medium">
+
+                {error}
+
+            </div>
+
+        </template>
+
+    </lightning-card>
+
+</template>

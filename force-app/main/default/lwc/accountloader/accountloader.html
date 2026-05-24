@@ -1,0 +1,20 @@
+<template>
+
+    <lightning-card title="Account Loader">
+
+        <lightning-button
+            label="Load Accounts"
+            onclick={loadAccounts}>
+        </lightning-button>
+
+        <template for:each={accounts} for:item="acc">
+
+            <p key={acc.Id}>
+                {acc.Name}
+            </p>
+
+        </template>
+
+    </lightning-card>
+
+</template>
